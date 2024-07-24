@@ -1,5 +1,6 @@
 package com.example.weather2.geocode;
 
+import com.example.weather2.geocode.geobj.georesponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;

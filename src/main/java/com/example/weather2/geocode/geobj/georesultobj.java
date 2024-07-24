@@ -1,4 +1,4 @@
-package com.example.weather2.geocode;
+package com.example.weather2.geocode.geobj;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
