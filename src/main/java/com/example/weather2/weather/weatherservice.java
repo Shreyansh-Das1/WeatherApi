@@ -12,8 +12,9 @@ public class weatherservice {
     {
         RestTemplate restTemplate2 = new RestTemplate();
         String url="https://api.open-meteo.com/v1/forecast?latitude="+format(latitude)+"&longitude="+format(longitude)+"&current=temperature_2m,relative_humidity_2m";
-        ResponseEntity<weatherresponse> response = restTemplate2.getForEntity(url, weatherresponse.class);
-        return response.getBody();
+        weatherresponse response = restTemplate2.getForObject(url, weatherresponse.class);
+        System.out.println("URL: "+url+"\n Response: "+response);
+        return response;
     }
 
     private String format(float coord) {    return String.format("%.2f", coord).trim();    }

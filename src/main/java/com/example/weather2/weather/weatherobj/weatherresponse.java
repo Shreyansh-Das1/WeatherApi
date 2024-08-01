@@ -7,9 +7,10 @@ import lombok.Data;
 import java.util.List;
 @Data @JsonIgnoreProperties(ignoreUnknown = true)
 public class weatherresponse {
-    location details = new location();
+    float latitude;
+    float longitude;
     @JsonProperty("current")
-    List<currentdetails> current;
+    currentdetails current;//Did'nt use List<> like in georesponse as this is returning only one object
 }
 
 @Data @JsonIgnoreProperties(ignoreUnknown = true)
