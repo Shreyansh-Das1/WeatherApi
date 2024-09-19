@@ -2,6 +2,7 @@ package com.example.weather2.weather.weatherobj;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.annotation.Nullable;
 import lombok.Data;
 
 import java.util.List;
@@ -11,6 +12,7 @@ public class weatherresponse {
     float longitude;
     @JsonProperty("current")
     currentdetails current;//Did'nt use List<> like in georesponse as this is returning only one object
+    @Nullable String remark;
 }
 
 @Data @JsonIgnoreProperties(ignoreUnknown = true)

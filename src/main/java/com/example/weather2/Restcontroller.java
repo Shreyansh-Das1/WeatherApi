@@ -17,11 +17,15 @@ public class Restcontroller {
     //private weatherresponse weather = new weatherresponse();
     private weatherservice weatherserv = new weatherservice();
     @GetMapping("/geocode")
-    public @ResponseBody weatherresponse fetch(@RequestBody String location)
-    {
+    public @ResponseBody weatherresponse fetch(@RequestBody String location){
         geocode= service.getcode(location);
-         coords = geocode.getResults().get(0);
-        return weatherserv.service(coords.getLongitude() , coords.getLatitude());
-
+        try {
+            coords = geocode.getResults().get(0);
+            return weatherserv.service(coords.getLongitude(), coords.getLatitude());
+        }catch(Exception e){
+            weatherresponse res = new weatherresponse();
+            res.setRemark("Location not found");
+            return res;
+        }
     }
 }
